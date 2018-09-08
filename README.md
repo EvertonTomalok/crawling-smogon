@@ -32,4 +32,4 @@ O segundo parser, irá abrir uma pagína no google chrome, em modo headless, de 
 Após isso, cada informação dos pokemons será salvo, e salvo no formato escolhido. No caso, ao chamar a spider, escolhi
 o output em .json<br>
 <br>
-As informações crawleadas, estão disponibilizadas no .json de nome "pokemons.json"
+As informações crawleadas, estão disponibilizadas no .json de nome "smogon/pokemons.json"
