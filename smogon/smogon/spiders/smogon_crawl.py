@@ -7,7 +7,7 @@ import time
 
 class SmogonCrawlSpider(scrapy.Spider):
     name = 'smogon_crawl'
-    allowed_domains = ['smogon.com']
+    allowed_domains = ['www.smogon.com']
     start_urls = ['https://www.smogon.com/dex/rs/pokemon/']
 
     def parse(self, response):
