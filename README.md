@@ -29,9 +29,9 @@ Após scrollar a página toda, a spider smogon_crawl irá adquirir todas as urls
 - Crawl informações de cada pokemon
 
 O segundo parser, irá abrir uma pagína no google chrome, em modo headless, de cada url crawleada na etapa 1.
-Após isso, cada informação dos pokemons será salvo, e salvo no formato escolhido. No caso, ao chamar a spider, escolhi
-o output no formato .json<br>
-<br>
+Após isso, as informações de cada pokemon serão salvas no formato escolhido. 
+No caso, ao chamar a spider, escolhi o output no formato .json<br>
+<br><br>
 As informações crawleadas, estão disponibilizadas no .json de nome pokemons.json ("smogon/pokemons.json").
 
 ### Terceira Etapa
