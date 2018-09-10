@@ -85,3 +85,5 @@ class CrawlmovesSpider(scrapy.Spider):
                 print(type(err), err)
                 x -= VALOR_SCROLL
                 y -= VALOR_SCROLL
+
+        driver.close()

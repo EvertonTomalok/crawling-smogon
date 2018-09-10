@@ -28,7 +28,7 @@ class SmogonCrawlSpider(scrapy.Spider):
         x = 0
         y = 500
 
-        valor = 500
+        VALOR_SCROLL = 500
 
         driver.execute_script("window.scrollTo(0, 0);")
 
@@ -38,10 +38,6 @@ class SmogonCrawlSpider(scrapy.Spider):
                     h = elemento.find_element_by_xpath('./a').get_attribute('href')
                     if h not in hrefs:
                         hrefs.append(h)
-                        print(h)
-                        # yield {
-                        #     'url': h
-                        # }
 
                 if y > last_height:
                     break
@@ -49,23 +45,19 @@ class SmogonCrawlSpider(scrapy.Spider):
                 # Scroll down to bottom
                 driver.execute_script(f"window.scrollTo({x},{y});")  # 0, document.body.scrollHeight
 
-                x += valor
-                y += valor
+                x += VALOR_SCROLL
+                y += VALOR_SCROLL
 
                 # Wait to load page
                 time.sleep(SCROLL_PAUSE_TIME)
 
-                # Calculate new scroll height and compare with last scroll height
-                # new_height = driver.execute_script("return document.body.scrollHeight")
-
             except Exception:
-                x -= valor
-                y -= valor
+                x -= VALOR_SCROLL
+                y -= VALOR_SCROLL
 
         driver.close()
 
         for href in hrefs:
-
             yield scrapy.Request(url=href, callback=self.get_info)
 
     def get_info(self, response):
@@ -82,10 +74,8 @@ class SmogonCrawlSpider(scrapy.Spider):
         for t in driver.find_elements_by_xpath('//div[@class="PokemonSummary-types"]/ul/li/a'):
             tipo.append(t.text)
 
-        #habilidades = []
         links_habilidade = []
         for element in driver.find_elements_by_xpath('//ul[@class="AbilityList"]/li/a'):
-            #habilidades.append(element.text)
             links_habilidade.append((element.text, element.get_attribute('href')))
 
         atributos = []
